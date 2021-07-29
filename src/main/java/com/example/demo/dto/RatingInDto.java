@@ -11,14 +11,14 @@ import java.util.Objects;
 public class RatingInDto {
     private Integer mark;
     private LocalDate localDate;
-    private Long idPersons;
-    private Long idJournal;
+    private Long idStudents;
+    private Long idJournals;
 
-    public RatingInDto(Integer mark, LocalDate localDate, Long idPersons, Long idJournal) {
+    public RatingInDto(Integer mark, LocalDate localDate, Long idStudents, Long idJournals) {
         this.mark = mark;
         this.localDate = localDate;
-        this.idPersons = idPersons;
-        this.idJournal = idJournal;
+        this.idStudents = idStudents;
+        this.idJournals = idJournals;
     }
 
     @Override
@@ -26,11 +26,11 @@ public class RatingInDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RatingInDto that = (RatingInDto) o;
-        return mark.equals(that.mark) && localDate.equals(that.localDate) && idPersons.equals(that.idPersons) && idJournal.equals(that.idJournal);
+        return mark.equals(that.mark) && localDate.equals(that.localDate) && idStudents.equals(that.idStudents) && idJournals.equals(that.idJournals);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mark, localDate, idPersons, idJournal);
+        return Objects.hash(mark, localDate, idStudents, idJournals);
     }
 }

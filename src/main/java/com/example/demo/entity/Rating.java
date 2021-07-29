@@ -21,7 +21,7 @@ public class Rating {
     private Integer mark;
     private LocalDate localDate;
     @ManyToOne
-    private Person person;
+    private Student student;
     @ManyToOne
     private Journal journal;
     private static final List<Rating> ratings= new ArrayList<>();

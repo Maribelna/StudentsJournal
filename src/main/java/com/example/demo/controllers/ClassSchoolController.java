@@ -35,10 +35,10 @@ public class ClassSchoolController {
         return ResponseEntity.ok(classSchoolInDto);
     }
 
-    @RequestMapping(value = "/enrollment/idClass/idPerson", method = RequestMethod.GET)
+    @RequestMapping(value = "/enrollment/idClass/idStudent", method = RequestMethod.GET)
     public ResponseEntity<String> enrollment(@RequestParam(name = "idClass") Long idClass,
-                                             @RequestParam(name = "idPerson") Long idPerson) {
-        personService.enrollment(idPerson, idClass);
+                                             @RequestParam(name = "idStudent") Long idStudent) {
+        personService.enrollmentStudent(idStudent, idClass);
         return ResponseEntity.ok("Enrollment was successful");
     }
 

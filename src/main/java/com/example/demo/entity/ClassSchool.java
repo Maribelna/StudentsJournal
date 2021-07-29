@@ -18,7 +18,7 @@ public class ClassSchool {
     @OneToOne
     private Boss teacher;
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Person> persons;
+    private List<Student> students;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Journal> journals;
     @ManyToOne

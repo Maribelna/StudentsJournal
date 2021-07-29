@@ -4,6 +4,7 @@ import com.example.demo.dto.ClassSchoolInDto;
 import com.example.demo.dto.ClassSchoolOutDto;
 import com.example.demo.entity.ClassSchool;
 import com.example.demo.entity.Person;
+import com.example.demo.entity.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,14 +19,14 @@ public class ClassSchoolMapper {
         if (classSchool != null) {
             ClassSchoolOutDto classSchoolOutDto = new ClassSchoolOutDto(classSchool.getId(), classSchool.getLetter(), classSchool.getNumeral());
             List<Long> listId = new ArrayList<>();
-            if (classSchool.getPersons() != null) {
-                for (Person person : classSchool.getPersons()) {
-                    listId.add(person.getId());
+            if (classSchool.getStudents() != null) {
+                for (Student student : classSchool.getStudents()) {
+                    listId.add(student.getId());
                 }
-                classSchoolOutDto.setPersonsIds(listId);
+                classSchoolOutDto.setStudentIds(listId);
                 return classSchoolOutDto;
             }
-            classSchoolOutDto.setPersonsIds(null);
+            classSchoolOutDto.setStudentIds(null);
             return classSchoolOutDto;
         }
         return null;

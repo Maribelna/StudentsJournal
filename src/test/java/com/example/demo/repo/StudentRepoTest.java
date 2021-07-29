@@ -6,17 +6,16 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.Assert.*;
 @SpringBootTest
 @Slf4j
-public class PersonRepoTest {
+public class StudentRepoTest {
 
     @Autowired
-    private PersonRepo personRepo;
+    private StudentRepo studentRepo;
 
     @Test
     public void findByName() {
-        Person person = personRepo.findByName("Marina");
+        Person person = studentRepo.findByName("Marina");
         log.info(person.toString());
     }
 

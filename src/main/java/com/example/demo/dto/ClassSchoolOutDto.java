@@ -12,7 +12,7 @@ public class ClassSchoolOutDto {
     private Long id;
     private char letter;
     private int numeral;
-    private List<Long> personsIds;
+    private List<Long> studentIds;
 
     public ClassSchoolOutDto(Long id, char letter, int numeral) {
         this.id = id;

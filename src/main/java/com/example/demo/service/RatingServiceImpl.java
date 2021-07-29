@@ -7,7 +7,6 @@ import com.example.demo.entity.Rating;
 import com.example.demo.mapper.RatingMapper;
 import com.example.demo.repo.RatingRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -35,7 +34,6 @@ public class RatingServiceImpl implements RatingService {
         LocalDate localDate = DateTimeUtils.strToLocalDate(date);
         RatingInDto ratingInDto = new RatingInDto(mark,localDate,idPerson,idJournal);
         Rating rating = ratingMapper.inDtoToEntity(ratingInDto);
-        for(Rating rating1: )
         ratingRepo.save(rating);
         return true;
     }

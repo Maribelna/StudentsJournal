@@ -33,6 +33,4 @@ public class RatingController {
         ratingService.saveRating(mark, date, idPersons, idJournal);
         return ResponseEntity.ok("Saving was successful");
     }
-
-    @RequestMapping(value = "/")
 }

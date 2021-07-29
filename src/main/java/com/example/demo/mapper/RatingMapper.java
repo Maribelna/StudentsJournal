@@ -3,46 +3,44 @@ package com.example.demo.mapper;
 import com.example.demo.dto.RatingInDto;
 import com.example.demo.dto.RatingOutDto;
 import com.example.demo.entity.Journal;
-import com.example.demo.entity.Person;
 import com.example.demo.entity.Rating;
+import com.example.demo.entity.Student;
 import com.example.demo.repo.JournalRepo;
-import com.example.demo.repo.PersonRepo;
+import com.example.demo.repo.StudentRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
-
+@Component
 @RequiredArgsConstructor
 public class RatingMapper {
 
     private final JournalRepo journalRepo;
-    private final PersonRepo personRepo;
+    private final StudentRepo studentRepo;
 
     public RatingOutDto entityToOutDto(Rating rating) {
-        if (rating != null) {
-            return new RatingOutDto(rating.getId(), rating.getMark(), rating.getLocalDate(), rating.getPerson().getId(), rating.getJournal().getId());
-        }return null;
+            return new RatingOutDto(rating.getId(), rating.getMark(), rating.getLocalDate(), rating.getStudent().getId(), rating.getJournal().getId());
     }
 
     public Rating inDtoToEntity(RatingInDto ratingInDto) {
         Rating rating = new Rating(ratingInDto.getMark(), ratingInDto.getLocalDate());
-        if(ratingInDto.getIdJournal() != null) {
-            Optional<Journal> journalOpt = journalRepo.findById(ratingInDto.getIdJournal());
+        if(ratingInDto.getIdJournals() != null) {
+            Optional<Journal> journalOpt = journalRepo.findById(ratingInDto.getIdJournals());
             if(journalOpt.isEmpty()){
-                throw new RuntimeException(String.format("Сущность с id=%s не найдена",ratingInDto.getIdJournal()));
+                throw new RuntimeException(String.format("Сущность с id=%s не найдена",ratingInDto.getIdJournals()));
             }  else {
                 Journal journal = journalOpt.get();
                 rating.setJournal(journal);
             }
-        }else return null;
-        if (ratingInDto.getIdPersons() != null) {
-            Optional<Person> personOpt = personRepo.findById(ratingInDto.getIdPersons());
-            if(personOpt.isEmpty()){
-                throw new RuntimeException(String.format("Сущность с id=%s не найдена",ratingInDto.getIdPersons()));
+        }else rating.setJournal(null);
+        if (ratingInDto.getIdStudents() != null) {
+            Optional<Student> studentOpt = studentRepo.findById(ratingInDto.getIdStudents());
+            if(studentOpt.isEmpty()){
+                throw new RuntimeException(String.format("Сущность с id=%s не найдена",ratingInDto.getIdStudents()));
             }  else {
-                Person person = personOpt.get();
-                rating.setPerson(person);
+                rating.setStudent(studentOpt.get());
             }
-        }else return null;
-        return null;
+        }else rating.setStudent(null);
+        return rating;
 }
 }
