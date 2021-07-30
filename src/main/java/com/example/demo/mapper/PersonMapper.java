@@ -25,11 +25,11 @@ public class PersonMapper {
 
     public StudentOutDto studentEntityToDto(Student student) {
         return new StudentOutDto(student.getId(), student.getName(), student.getLastname()
-                , student.getPatronymic(), student.getBirthday(), student.getDescription(), classSchoolMapper.entityToOutDto(student.getClassSchool()));
+                , student.getPatronymic(), student.getBirthday(), student.getDescription(), classSchoolMapper.entityToOutDto(student.getClassSchoolForStudent()));
     }
 
     public BossOutDto bossEntityToDto(Boss boss) {
         return new BossOutDto(boss.getId(), boss.getName(), boss.getLastname(), boss.getPatronymic(),
-                boss.getBirthday(), boss.getClassSchool().getId());
+                boss.getBirthday(), boss.getClassSchoolForTeacher().getId());
     }
 }

@@ -2,6 +2,9 @@ package com.example.demo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,9 +20,11 @@ public class ClassSchool {
     private int numeral;
     @OneToOne
     private Boss teacher;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany()
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Student> students;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany()
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Journal> journals;
     @ManyToOne
     private School school;

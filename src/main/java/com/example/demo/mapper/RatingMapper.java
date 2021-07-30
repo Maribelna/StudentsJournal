@@ -8,6 +8,8 @@ import com.example.demo.entity.Student;
 import com.example.demo.repo.JournalRepo;
 import com.example.demo.repo.StudentRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

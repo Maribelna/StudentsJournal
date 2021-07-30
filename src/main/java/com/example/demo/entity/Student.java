@@ -12,21 +12,18 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@RequiredArgsConstructor
 @NoArgsConstructor
-public class Student extends Person{
+public class Student extends Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @OneToMany
     private List<Rating> ratings;
     @ManyToOne(cascade = CascadeType.ALL)
-    private ClassSchool classSchool;
+    private ClassSchool classSchoolForStudent;
     private String description;
 
     public Student(String name, String lastname, String patronymic, LocalDate birthday, String description) {
         super(name, lastname, patronymic, birthday);
         this.description = description;
     }
+
 }

@@ -22,9 +22,9 @@ public interface ClassSchoolRepo extends JpaRepository<ClassSchool, Long> {
 
 
 
-    @Query(value = "select cs from ClassSchool cs where cs.letter = :let and cs.numeral <= :num")
-    List<ClassSchool> selectMyClassesNotNative(@Param("let") char letter, @Param("num") int numeral);
-
-    @Query(value = "select cs from ClassSchool cs where cs.teacher.name = :bossName")
-    List<ClassSchool> selectMyClassesNotNative(@Param("bossName") String bossName);
+//    @Query(value = "select cs from ClassSchool cs where cs.letter = :let and cs.numeral <= :num")
+//    List<ClassSchool> selectMyClassesNotNative(@Param("let") char letter, @Param("num") int numeral);
+//
+//    @Query(value = "select cs from ClassSchool cs where cs.teacher.name = :bossName")
+//    List<ClassSchool> selectMyClassesNotNative(@Param("bossName") String bossName);
 }

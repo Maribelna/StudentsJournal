@@ -3,7 +3,6 @@ package com.example.demo.service;
 import com.example.demo.dto.*;
 import com.example.demo.entity.Boss;
 import com.example.demo.entity.ClassSchool;
-import com.example.demo.entity.Person;
 import com.example.demo.entity.Student;
 import com.example.demo.mapper.PersonMapper;
 import com.example.demo.repo.BossRepo;
@@ -65,8 +64,7 @@ public class PersonServiceImpl implements PersonService {
         Student student = studentOpt.orElseThrow(() -> new RuntimeException(String.format("Сущность с id=%s не найдена!", idStudent)));
         Optional<ClassSchool> classSchoolOpt = classSchoolRepo.findById(idClass);
         ClassSchool classSchool = classSchoolOpt.orElseThrow(() -> new RuntimeException(String.format("Сущность с id=%s не найдена!", idClass)));
-        student.setClassSchool(classSchool);
-        PersonOutDto personOutDto = personMapper.studentEntityToDto(student);
+        student.setClassSchoolForStudent(classSchool);
         return true;
     }
 
@@ -76,8 +74,7 @@ public class PersonServiceImpl implements PersonService {
         Boss boss = bossOpt.orElseThrow(() -> new RuntimeException(String.format("Сущность с id=%s не найдена!", idBoss)));
         Optional<ClassSchool> classSchoolOpt = classSchoolRepo.findById(idClass);
         ClassSchool classSchool = classSchoolOpt.orElseThrow(() -> new RuntimeException(String.format("Сущность с id=%s не найдена!", idClass)));
-        boss.setClassSchool(classSchool);
-        PersonOutDto personOutDto = personMapper.bossEntityToDto(boss);
+        boss.setClassSchoolForTeacher(classSchool);
         return true;
     }
 }

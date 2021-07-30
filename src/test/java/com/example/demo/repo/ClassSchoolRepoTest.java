@@ -32,15 +32,15 @@ class ClassSchoolRepoTest {
         log.info(arr.toString());
     }
 
-    @Test
-    void selectMyClassesNotNative() {
-        List<ClassSchool> arr = repo.selectMyClassesNotNative('A', 6);
-        log.info(arr.toString());
-    }
-
-    @Test
-    void selectMyClassesNotNative2() {
-        List<ClassSchool> arr = repo.selectMyClassesNotNative("Marina");
-        log.info(arr.toString());
-    }
+//    @Test
+//    void selectMyClassesNotNative() {
+//        List<ClassSchool> arr = repo.selectMyClassesNotNative('A', 6);
+//        log.info(arr.toString());
+//    }
+//
+//    @Test
+//    void selectMyClassesNotNative2() {
+//        List<ClassSchool> arr = repo.selectMyClassesNotNative("Marina");
+//        log.info(arr.toString());
+//    }
 }

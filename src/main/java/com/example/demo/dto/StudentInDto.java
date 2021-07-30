@@ -7,15 +7,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Data
-@NoArgsConstructor
 public class StudentInDto extends PersonInDto {
 
     private String description;
-
-    public StudentInDto(String name, String lastname, String patronymic, LocalDate birthday, String description) {
-        super(name, lastname, patronymic, birthday);
-        this.description = description;
-    }
 
     @Override
     public boolean equals(Object o) {
